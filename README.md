@@ -128,3 +128,41 @@ After decoding, the following structure can be found:
             - 4 - light sleep
             - 5 - deep sleep
             - others needs to be figured out
+
+# Example implementation:
+
+```
+./mifit_api.py  --email me@mydomain.com --password s3cr3t
+
+Logging in with email me@mydomain.com
+Obtained access token
+Retrieveing mi band data
+2019-08-02
+v = 5
+Total sleep:  07:24 , deep sleep 03:14 , light sleep 04:10 , slept from 2019-08-02 23:51:00 until 2019-08-03 07:15:00
+23:51 - 00:00 light sleep
+00:01 - 00:35 deep sleep
+00:36 - 00:46 light sleep
+00:47 - 01:23 deep sleep
+01:24 - 02:40 light sleep
+02:41 - 03:26 deep sleep
+03:27 - 03:50 light sleep
+03:51 - 04:10 deep sleep
+04:11 - 04:21 light sleep
+04:22 - 04:36 deep sleep
+04:37 - 04:48 light sleep
+04:49 - 05:01 deep sleep
+05:02 - 05:45 light sleep
+05:46 - 06:03 deep sleep
+[...]
+Total steps:  1119 , used 27 kcals , walked 757 meters
+21:17 - 21:31 338 steps 
+21:33 - 21:59 110 steps walking
+22:03 - 22:07 153 steps 
+22:49 - 22:54 100 steps 
+goal = 8000
+tz = 3600
+2019-08-03
+v = 5
+[...]
+```
