@@ -77,16 +77,20 @@ def dump_sleep_data(day, slp):
 
 def dump_step_data(day, stp):
 	print("Total steps: ",stp['ttl'],", used",stp['cal'],"kcals",", walked",stp['dis'],"meters")
-
-	for activity in stp['stage']:
-		if activity['mode']==1:
-			activity_type=''
-		elif activity['mode']==7:
-			activity_type='walking'
-		else:
-			activity_type="unknown activity type: {}".format(activity['mode'])
-		print(format(minutes_as_time(activity['start'])),"-",minutes_as_time(activity['stop']),
-			activity['step'],'steps',activity_type)
+	if 'stage' in stp:
+		for activity in stp['stage']:
+			if activity['mode']==1:
+				activity_type='slow walking'
+			elif activity['mode']==3:
+				activity_type='fast walking'
+			elif activity['mode']==4:
+				activity_type='running'
+			elif activity['mode']==7:
+				activity_type='light activity'
+			else:
+				activity_type="unknown activity type: {}".format(activity['mode'])
+			print(format(minutes_as_time(activity['start'])),"-",minutes_as_time(activity['stop']),
+				activity['step'],'steps',activity_type)
 
 def get_band_data(auth_info):
 	print("Retrieveing mi band data")
